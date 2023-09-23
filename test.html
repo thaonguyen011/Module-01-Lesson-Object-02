@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="result"></p>
+    <script>
+      let n = parseInt(prompt("Nhập số lượng số nguyên tố cần tìm:"));
+      let count = 0;
+      let text = "";
+
+      // let N = parseInt(prompt(`Nhập số nguyên tố thứ ${count + 1}:`));
+
+      for (let i = 2; count < n; i++) {
+        let countUoc = 0;
+        for (let j = 2; j < i; j++) {
+          if (i % j === 0) {
+            countUoc++;
+            break;
+          }
+        }
+
+        if (countUoc === 0) {
+          text += `Number ${count + 1} is ${i}<br> ${i}`;
+          count++;
+        }
+      }
+
+      document.getElementById("result").innerHTML = text;
+    </script>
+  </body>
+</html>

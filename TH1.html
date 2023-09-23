@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Battery(energy) {
+        this.energy = energy;
+        this.setEnergy = (energy) => (this.energy = energy);
+        this.getEnergy = () => this.energy;
+        this.decrease = () => {
+            if (this.energy > 0) {this.energy--};
+      }
+    }
+
+      function FlashLamp(status, battery) {
+        this.status = status;
+        this.battery = battery;
+        this.setBattery = (battery) => (this.battery = battery);
+        this.getBatteryInfo = () => this.battery.getEnergy();// Tại sao không khai báo battery là 1 đối tượng của lớp Battery?
+        this.light = () => { // (this.status -> sai ?)
+            if (this.status == true) {alert('Lighting');}
+            else {alert('Not lighting');}
+        };
+        this.turnOn = () => this.status = true;
+        this.turnOff = () => this.status = false;
+      }
+    //   let battery = new Battery();
+    //   battery.setEnergy(10);
+
+    //   let flashLamp = new FlashLamp();
+    //   flashLamp.setBattery(battery);
+
+    //   document.write('Battery info: ' + flashLamp.getBatteryInfo() + '<br>');
+    //   flashLamp.light();
+
+    //   document.write('Turn on <br>');
+    //   flashLamp.turnOn();
+    //   flashLamp.light();
+    //   battery.decrease();
+    //   document.write('Battery info:' + flashLamp.getBatteryInfo() + '<br>');
+
+    //   document.write('Turn off <br>');
+    //   flashLamp.turnOff();
+    //   flashLamp.light();
+
+      let flashLamp2 = new FlashLamp(20); // Nhận parameter theo thứ tự, nếu k có thì có giá trị undefined
+      alert(flashLamp2.status);
+      alert(flashLamp2.battery);
+    </script>
+  </body>
+</html>

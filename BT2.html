@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let Apple = function (weight, status) {
+        this.weight = weight;
+        this.status = status;
+        this.decrease = () => this.weight--;
+        this.isEmpty = () => (this.status = this.getWeight = () => this.weight);
+      };
+
+      let Human = function (name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        this.setGender = (gender) => this.gender;
+        this.isMale = () => {
+          if (this.gender == "male" || this.gender == "Male") {
+            return true;
+          } else {
+            return false;
+          }
+        };
+        this.say = (word) => alert(word);
+        this.eat = (apple) => {
+          if (apple.weight > 0) {
+            apple.decrease();
+            this.weight++;
+          }
+        };
+        this.setName = (name) => (this.name = name);
+        this.getName = () => this.name;
+        this.getWeight = () => this.weight;
+        this.setWeight = (weight) => (this.weight = weight);
+        this.checkApple = (apple) => apple.weight;
+        this.checkPeople = (human) => {
+          human +
+            " name is " +
+            human.name +
+            ", gender is " +
+            human.gender +
+            " and weight is " +
+            human.weight;
+        };
+      };
+
+      let apple = new Apple(10);
+
+      let human1 = new Human("Adam", "male", 65);
+      let human2 = new Human("Eva", "female", 55);
+
+      //   document.write(human1.name + " an tao <br>");
+      //   human1.eat(apple);
+      //   document.write("Qua tao con <br>" + apple.weight + " don vi <br>");
+      //   document.write(
+      //     "Can nang cua " +
+      //       human1.name +
+      //       " la: " +
+      //       human1.weight +
+      //       " đơn vị <br><br>"
+      //   );
+
+      //   document.write(human2.name + " an tao <br>");
+      //   human2.eat(apple);
+      //   document.write("Qua tao con <br>" + apple.weight + " don vi <br>");
+      //   document.write(
+      //     "Can nang cua " +
+      //       human2.name +
+      //       " la: " +
+      //       human2.weight +
+      //       " đơn vị <br><br>"
+      //   );
+
+      //   document.write(human1.name + " an tao <br>");
+      //   human1.eat(apple);
+      //   document.write("Qua tao con <br>" + apple.weight + " don vi <br>");
+      //   document.write(
+      //     "Can nang cua " +
+      //       human1.name +
+      //       " la: " +
+      //       human1.weight +
+      //       " đơn vị <br><br>"
+      //   );
+
+      //   document.write(human2.name + " an tao <br>");
+      //   human2.eat(apple);
+      //   document.write("Qua tao con <br>" + apple.weight + " don vi <br>");
+      //   document.write(
+      //     "Can nang cua " +
+      //       human2.name +
+      //       " la: " +
+      //       human2.weight +
+      //       " đơn vị <br><br>"
+      //   );
+
+      //   document.write(human1.name + " an tao <br>");
+      //   human1.eat(apple);
+      //   document.write("Qua tao con <br>" + apple.weight + " don vi <br>");
+      //   document.write(
+      //     "Can nang cua " +
+      //       human1.name +
+      //       " la: " +
+      //       human1.weight +
+      //       " đơn vị <br><br>"
+      //   );
+
+      //   document.write(human2.name + " an tao <br>");
+      //   human2.eat(apple);
+      //   document.write("Qua tao con <br>" + apple.weight + " don vi <br>");
+      //   document.write(
+      //     "Can nang cua " +
+      //       human2.name +
+      //       " la: " +
+      //       human2.weight +
+      //       " đơn vị <br><br>"
+      //   );
+
+      //   document.write(human1.name + " an tao <br>");
+      //   human1.eat(apple);
+      //   document.write("Qua tao con <br>" + apple.weight + " don vi <br>");
+      //   document.write(
+      //     "Can nang cua " +
+      //       human1.name +
+      //       " la: " +
+      //       human1.weight +
+      //       " đơn vị <br><br>"
+      //   );
+
+      //   document.write(human2.name + " an tao <br>");
+      //   human2.eat(apple);
+      //   document.write("Qua tao con <br>" + apple.weight + " don vi <br>");
+      //   document.write(
+      //     "Can nang cua " +
+      //       human2.name +
+      //       " la: " +
+      //       human2.weight +
+      //       " đơn vị <br><br>"
+      //   );
+
+      //   document.write(human1.name + " an tao <br>");
+      //   human1.eat(apple);
+      //   document.write("Qua tao con <br>" + apple.weight + " don vi <br>");
+      //   document.write(
+      //     "Can nang cua " +
+      //       human1.name +
+      //       " la: " +
+      //       human1.weight +
+      //       " đơn vị <br><br>"
+      //   );
+
+      //   document.write(human2.name + " an tao <br>");
+      //   human2.eat(apple);
+      //   document.write("Qua tao con <br>" + apple.weight + " don vi <br>");
+      //   document.write(
+      //     "Can nang cua " +
+      //       human2.name +
+      //       " la: " +
+      //       human2.weight +
+      //       " đơn vị <br><br>"
+      //   );
+
+      while (apple.weight > 0) {
+        document.write(human1.name + " an tao <br>");
+        human1.eat(apple);
+        document.write(`Qua tao con <br> ${apple.weight} don vi <br>`);
+        document.write(
+          `Can nang cua ${human1.name} la: ${human1.weight}  đơn vị <br><br>`
+        );
+
+        document.write(human2.name + " an tao <br>");
+        human2.eat(apple);
+        document.write(`Qua tao con <br> ${apple.weight} don vi <br>`);
+        document.write(
+          `Can nang cua ${human2.name} la: ${human2.weight} đơn vị <br><br>`
+        );
+      }
+    </script>
+  </body>
+</html>
