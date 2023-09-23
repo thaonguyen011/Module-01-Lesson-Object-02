@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let SwitchButton = function (status, lamp) {
+        this.status = status;
+        this.lamp = lamp;
+        this.connectToLamp = (lamp) => (this.lamp = lamp);
+        this.switchOff = () => this.lamp.turnOff();
+        this.switchOn = () => this.lamp.turnOn();
+      };
+
+      let ElectricLamp = function (status) {
+        this.status = status;
+        this.ElectricLamp = () => {
+          if (this.status == true) {
+            alert("Electric lamp is on");
+          } else {
+            alert("Electric lamp is off");
+          }
+        };
+        this.turnOff = () => (this.status = false);
+        this.turnOn = () => (this.status = true);
+      };
+
+      let lamp = new ElectricLamp();
+      let switchButt = new SwitchButton();
+
+      for (let i = 0; i < 10; i++) {
+        switchButt.connectToLamp(lamp);
+        switchButt.switchOn();
+        lamp.ElectricLamp();
+
+        switchButt.switchOff();
+        lamp.ElectricLamp();
+      }
+    </script>
+  </body>
+</html>
