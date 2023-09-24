@@ -3,33 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Bài 5</title>
   </head>
   <body>
-    <p id="result"></p>
     <script>
-      let n = parseInt(prompt("Nhập số lượng số nguyên tố cần tìm:"));
-      let count = 0;
-      let text = "";
-
-      // let N = parseInt(prompt(`Nhập số nguyên tố thứ ${count + 1}:`));
-
-      for (let i = 2; count < n; i++) {
-        let countUoc = 0;
-        for (let j = 2; j < i; j++) {
-          if (i % j === 0) {
-            countUoc++;
-            break;
+      let stars = [
+        "Polaris",
+        "Aldebaran",
+        "Deneb",
+        "Vega",
+        "Altair",
+        "Dubhe",
+        "Regulus",
+      ];
+      let constellation = [
+        "Ursa Minor",
+        "Tarurus",
+        "Cygnus",
+        "Lyra",
+        "Aquila",
+        "Ursa Major",
+        "Leo",
+      ];
+      function findConstellation(chuoi) {
+        for (let x = 0; x < stars.length; x++) {
+          if (chuoi === stars[x]) {
+            return constellation[x];
           }
         }
+        return "";
+      }
+      let tenngoisao  ;
+      let chomsao = '' ;
 
-        if (countUoc === 0) {
-          text += `Number ${count + 1} is ${i}<br> ${i}`;
-          count++;
+      while (chomsao === "") {
+        tenngoisao = prompt("Nhập tên một ngôi sao:");
+        chomsao = findConstellation(tenngoisao);
+
+        if (chomsao === "") {
+          alert("Tên ngôi sao không hợp lệ. Vui lòng nhập lại.");
         }
       }
-
-      document.getElementById("result").innerHTML = text;
+      alert(`Tên ngôi sao ${tenngoisao} thuộc chòm sao ${chomsao}`);
     </script>
   </body>
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let Rat = function (name, weight, speed, status) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.status = status;
+        this.getStatus = () => {
+          if (this.status == true) {
+            alert("Chuot song");
+          } else {
+            alert("Chuot chet");
+          }
+        };
+        this.call = (word) => word;
+      };
+
+      let Cat = function (name, weight, maxSpeed) {
+        this.name = name;
+        this.weight = weight;
+        this.maxSpeed = maxSpeed;
+        this.getWeight = () => this.weight;
+        this.call = (word) => word;
+        this.catch = (rat) => {
+          if (this.maxSpeed > rat.speed) {
+            alert("Meo da bat duoc chuot");
+          } else "Meo khong bat duoc chuot";
+        };
+        this.eat = (rat) => {
+          if (rat.status == true) {
+            this.weight += rat.weight;
+            rat.status = false;
+            alert('Chuot da bi meo an')
+          }
+        };
+      };
+
+      let rat = new Rat("Jerry", 1, 20, true);
+      let cat = new Cat("Tom", 5, 25);
+
+      rat.getStatus();
+      rat.call("chit, chit");
+
+      cat.call("meo meo");
+      cat.catch(rat);
+      cat.eat(rat);
+      cat.weight;
+
+      rat.getStatus();
+    </script>
+  </body>
+</html>

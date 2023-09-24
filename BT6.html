@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let Remote = function (code, tv) {
+        this.code = code;
+        this.tv = tv;
+        this.changeChannel = (channel) => (this.tv.channel = channel);
+        this.changeVolumn = (volumn) => (this.tv.volumn += volumn);
+        this.turnOn = () => this.tv.turnOn;
+        this.turnOff = () => this.tv.turnOff;
+      };
+
+      let Tv = function (channel, volumn, status) {
+        this.channel = channel;
+        this.volumn = volumn;
+        this.status = status;
+        this.turnOn = () => (this.status = true);
+        this.turnOff = () => (this.status = false);
+        this.changeChannel = (channel) => (this.channel = channel);
+        this.changeVolumn = (volumn) => (this.volumn = volumn);
+      };
+
+      let tv = new Tv();
+      let remote = new Remote();
+      remote.tv = tv;
+      tv.volumn = 10;
+
+      console.log(tv.turnOn());
+      console.log(tv.changeChannel(7));
+      console.log(remote.changeChannel(3));
+      console.log(remote.changeVolumn(2));
+      console.log(remote.turnOff());
+    </script>
+  </body>
+</html>
