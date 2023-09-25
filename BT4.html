@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      tr,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="caro"></table>
+
+    <script>
+      let text = "";
+      for (let i = 0; i < 20; i++) {
+        text += `<tr id = ${i}>`;
+        for (let j = 0; j < 20; j++) {
+          text += `<td id= '${i}${j}' onclick ='tick(this.id)'>&ensp;</td>`;
+        }
+        text += `</tr>`;
+      }
+      document.getElementById("caro").innerHTML = text;
+
+
+      let count = 0;
+      function tick(position) {
+        let a = document.getElementById(position).innerHTML; // a= undefined???(.value)
+        // typeof a = 'string'; --> Tại sao không thể so sánh a === '&ensp;'
+        // console.log(document.getElementById(position).value);
+        // if (String.valueOf(a) === String.valueOf("&ensp") --> đúng nhưng khi a ='X' vẫn đúng?)
+        // if (String.value(a) == '&ensp' --> false????
+        if (new String(a).valueOf() == new String("&ensp;").valueOf()) { // sai?????
+          if (count == 0) {
+            document.getElementById(position).innerHTML = "X";
+            count = 1;
+          } else {
+            document.getElementById(position).innerHTML = "O";
+            count = 0;
+          }
+        } else {
+          alert("Cell is not empty");
+        }
+      }
+      console.log(typeof '&ensp;');
+
+
+
+    //innerHTML khác value?
+    //so sánh '&ensp' vs ' ' -->false, khác unit code
+    // không thể so sánh string vì string là đối tượng trong js, --> dùng String.valueOf để chuyển vè primitive value và không làm thay đổi giá trị của đối tượng
+    //   function check(position){
+    //     for (let i = 0; i < 5; i++) {
+    //         let giatri = 
+        
+    //   }
+    </script>
+  </body>
+</html>

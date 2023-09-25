@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách sản phẩm</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #ccc;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #333;
+        color: #fff;
+      }
+
+      button {
+        padding: 5px 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      button.edit {
+        background-color: #007bff;
+        font-size: 15px;
+      }
+
+      button.delete {
+        background-color: #dc3545;
+        font-size: 15px;
+      }
+
+      button:hover {
+        background-color: #555;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      input[type="text"] {
+        padding: 5px;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Danh sách sản phẩm</h1>
+      <div>
+        <input
+          type="text"
+          id="productName"
+          placeholder="Nhập tên sản phẩm"
+          size="30"
+        />
+        <button onclick="addProduct()">Thêm</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Tên sản phẩm</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody id="productList"></tbody>
+      </table>
+    </div>
+
+    <script>
+      let productList = [];
+
+      // Hàm hiển thị danh sách sản phẩm
+      function displayProductList() {
+        let tbody = document.getElementById("productList");
+        tbody.innerHTML = ""; // Xóa nội dung cũ
+
+        for (let i = 0; i < productList.length; i++) {
+          let row = document.createElement("tr");
+
+          let nameCell = document.createElement("td");
+          nameCell.textContent = productList[i];
+          row.appendChild(nameCell);
+
+          let actionsCell = document.createElement("td");
+          let editButton = document.createElement("button");
+          editButton.textContent = "Sửa";
+          editButton.className = "edit";
+          editButton.addEventListener("click", function () {
+            editProduct(i);
+          });
+
+          let deleteButton = document.createElement("button");
+          deleteButton.textContent = "Xóa";
+          deleteButton.className = "delete";
+          deleteButton.addEventListener("click", function () {
+            deleteProduct(i);
+          });
+
+          let actionButtonsDiv = document.createElement("div");
+          actionButtonsDiv.className = "action-buttons";
+          actionButtonsDiv.appendChild(editButton);
+          actionButtonsDiv.appendChild(deleteButton);
+
+          actionsCell.appendChild(actionButtonsDiv);
+          row.appendChild(actionsCell);
+
+          tbody.appendChild(row);
+        }
+      }
+
+      // Hàm thêm sản phẩm mới vào danh sách
+      function addProduct() {
+        let productName = document.getElementById("productName").value;
+        if (productName) {
+          productList.push(productName);
+          displayProductList();
+          document.getElementById("productName").value = ""; // Xóa nội dung input
+          alert("Sản phẩm được thêm thành công!");
+        }
+      }
+
+      // Hàm chỉnh sửa tên sản phẩm trong danh sách
+      function editProduct(index) {
+        let newName = prompt("Nhập tên sản phẩm mới:");
+        let productName = document.getElementById("productName").value;
+        if (newName) {
+          while (productList.includes(newName)) {
+            newName = prompt(
+              "Tên bạn nhập đã trùng với tên ban đầu vui lòng nhập lại. Nhập lại tên sản phẩm mới:"
+            );
+          }
+          productList[index] = newName;
+          displayProductList();
+        }
+      }
+
+      // Hàm xóa sản phẩm khỏi danh sách
+      function deleteProduct(index) {
+        productList.splice(index, 1);
+        displayProductList();
+      }
+
+      // Hiển thị danh sách sản phẩm ban đầu
+      displayProductList();
+    </script>
+  </body>
+</html>

@@ -7,44 +7,29 @@
   </head>
   <body>
     <script>
-      let stars = [
-        "Polaris",
-        "Aldebaran",
-        "Deneb",
-        "Vega",
-        "Altair",
-        "Dubhe",
-        "Regulus",
-      ];
-      let constellation = [
-        "Ursa Minor",
-        "Tarurus",
-        "Cygnus",
-        "Lyra",
-        "Aquila",
-        "Ursa Major",
-        "Leo",
-      ];
-      function findConstellation(chuoi) {
-        for (let x = 0; x < stars.length; x++) {
-          if (chuoi === stars[x]) {
-            return constellation[x];
-          }
-        }
-        return "";
-      }
-      let tenngoisao  ;
-      let chomsao = '' ;
+      // function sum(a) {
+      //   // let sum = 0;
+      //   // for (let i = 0; i < a.length; i++) {
+      //   //   if (a[])
+      //   // }
+      // }
 
-      while (chomsao === "") {
-        tenngoisao = prompt("Nhập tên một ngôi sao:");
-        chomsao = findConstellation(tenngoisao);
+      // let a1 = [-9, -5, 3, 2, 0, -1, 4];
+      //   a1.sort(function (a, b) {
+      //   if (a > 0 && b> 0 &&a % 2 == 0 && b % 2 == 0) {
+      //     return a - b;
+      //   }
+      // });
+      // console.log(a1);
 
-        if (chomsao === "") {
-          alert("Tên ngôi sao không hợp lệ. Vui lòng nhập lại.");
+      let a = new String(' ');
+      let b = new String(' ');
+      if (a.valueOf() === b.valueOf()) {
+        alert('true');
+      } else {
+        alert('false');
         }
-      }
-      alert(`Tên ngôi sao ${tenngoisao} thuộc chòm sao ${chomsao}`);
+
     </script>
   </body>
 </html>
